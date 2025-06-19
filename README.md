@@ -65,7 +65,7 @@ Bodybook/
    ```
 2. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/bodybook.git
+   git clone https://github.com/MelvinSGjr/bodybook.git
    cd bodybook
    ```
 3. **Install dependencies:**
