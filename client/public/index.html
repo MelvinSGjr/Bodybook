@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybook</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="assets/default-avatar.png">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="index.html" class="logo"><i class="fa fa-book"></i> Bodybook</a>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <select id="language-switcher">
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="yue">粵語</option>
+            <option value="zh-TW">台灣正體</option>
+            <option value="ru">Русский</option>
+            <option value="es">Español</option>
+            <option value="it">Italiano</option>
+            <option value="de-CH">Deutsch (Schweiz)</option>
+            <option value="pt-BR">Português (Brasil)</option>
+        </select>
+        <ul class="nav-links">
+            <li><a href="profile.html"><i class="fa fa-user"></i> <span data-i18n="profile">Profile</span></a></li>
+            <li><a href="index.html"><i class="fa fa-home"></i> <span data-i18n="home">Home</span></a></li>
+            <li><a href="#"><i class="fa fa-users"></i> <span data-i18n="friends">Friends</span></a></li>
+            <li><a href="#"><i class="fa fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="profile-box">
+                <div class="profile-pic">JD</div>
+                <div class="username">John Doe</div>
+                <div data-i18n="view_profile">View My Profile</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><i class="fa fa-newspaper-o"></i> <span data-i18n="news_feed">News Feed</span></a></li>
+                <li><a href="#"><i class="fa fa-comments"></i> <span data-i18n="messages">Messages</span></a></li>
+                <li><a href="#"><i class="fa fa-calendar"></i> <span data-i18n="events">Events</span></a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span data-i18n="groups">Groups</span></a></li>
+                <li><a href="#"><i class="fa fa-camera"></i> <span data-i18n="photos">Photos</span></a></li>
+                <li><a href="#"><i class="fa fa-film"></i> <span data-i18n="videos">Videos</span></a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> <span data-i18n="pages">Pages</span></a></li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Status Update Box -->
+            <div class="status-box">
+                <input type="text" class="status-input" placeholder="What's on your mind?" data-i18n-placeholder="whats_on_mind">
+                <button class="btn" data-i18n="share">Share</button>
+            </div>
+            <!-- URL Shortener Section -->
+            <div class="url-shortener">
+                <h2 class="section-title" data-i18n="url_shortener_title">Bodybook URL Shortener</h2>
+                <p data-i18n="url_shortener_desc">Shorten your long URLs with Bodybook!</p>
+                <input type="text" class="url-input" id="longUrl" placeholder="Enter your long URL here..." data-i18n-placeholder="enter_long_url">
+                <button class="btn" id="shortenBtn" data-i18n="shorten_url">Shorten URL</button>
+                <div class="shortened-url" id="shortenedUrl">
+                    <span data-i18n="your_short_url">Your shortened URL:</span> <a href="#" id="resultUrl"></a>
+                </div>
+            </div>
+            <!-- News Feed -->
+            <div class="feed">
+                <div class="feed-header">
+                    <div class="feed-pic">JD</div>
+                    <div>
+                        <div class="feed-name">John Doe</div>
+                        <div class="feed-time" data-i18n="posted_3h">Posted 3 hours ago</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p data-i18n="feed_post1">Just tried the new Bodybook URL shortener - it's amazing! Highly recommend trying it out!</p>
+                </div>
+                <div class="feed-actions">
+                    <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> <span data-i18n="like">Like</span></a>
+                    <a href="#" class="feed-action"><i class="fa fa-comment"></i> <span data-i18n="comment">Comment</span></a>
+                    <a href="#" class="feed-action"><i class="fa fa-share"></i> <span data-i18n="share">Share</span></a>
+                </div>
+            </div>
+            <!-- ... другие посты ... -->
+        </div>
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="ad-box">
+                <div class="ad-title" data-i18n="sponsored">Sponsored</div>
+                <div class="ad-content" data-i18n="ad1">Get the original Facebook experience with Bodybook!</div>
+            </div>
+            <div class="ad-box">
+                <div class="ad-title" data-i18n="shortener">Bodybook Shortener</div>
+                <div class="ad-content" data-i18n="ad2">Shorten your URLs with bbk.to today!</div>
+            </div>
+            <h3 data-i18n="online_friends">Online Friends</h3>
+            <ul class="friends-list">
+                <li>
+                    <div class="friend-pic">AJ</div>
+                    <div class="friend-name">Alex Johnson</div>
+                </li>
+                <!-- ... другие друзья ... -->
+            </ul>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        Bodybook &copy; 2023 - <span data-i18n="footer">The old Facebook experience with modern URL shortening</span>
+    </div>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>

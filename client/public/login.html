@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybook - Login</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="assets/default-avatar.png">
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 120px auto 0;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            padding: 30px 30px 20px 30px;
+            text-align: center;
+        }
+        .login-logo {
+            color: #3b5998;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-logo i {
+            margin-right: 10px;
+        }
+        .login-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 15px;
+        }
+        .login-form button {
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to bottom, #5b7bd5, #4864b1);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background: linear-gradient(to bottom, #4864b1, #3b5998);
+        }
+        .register-link {
+            margin-top: 10px;
+            display: block;
+            color: #3b5998;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        #language-switcher {
+            margin: 10px 0 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-logo"><i class="fa fa-book"></i> Bodybook</div>
+        <select id="language-switcher">
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="yue">粵語</option>
+            <option value="zh-TW">台灣正體</option>
+            <option value="ru">Русский</option>
+            <option value="es">Español</option>
+            <option value="it">Italiano</option>
+            <option value="de-CH">Deutsch (Schweiz)</option>
+            <option value="pt-BR">Português (Brasil)</option>
+        </select>
+        <form class="login-form">
+            <input type="text" placeholder="Email or Username" data-i18n-placeholder="login_email">
+            <input type="password" placeholder="Password" data-i18n-placeholder="login_password">
+            <button type="submit" data-i18n="login">Log In</button>
+        </form>
+        <a href="#" class="register-link" data-i18n="register">Create new account</a>
+    </div>
+    <script src="scripts/language.js"></script>
+</body>
+</html>

@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybook - Old Facebook Style</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lucida Grande', Tahoma, sans-serif;
+        }
+        
+        body {
+            background-color: #f2f2f2;
+            color: #333;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23e9eaee"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%23d8d8d8" stroke-width="0.5"/></svg>');
+        }
+        
+        /* Header Styles */
+        .header {
+            background: linear-gradient(to bottom, #3b5998, #2d4373);
+            height: 60px;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #133783;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+        }
+        
+        .search-bar {
+            background-color: white;
+            border: none;
+            border-radius: 2px;
+            padding: 4px 8px;
+            width: 300px;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 15px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 80px auto 20px;
+            display: flex;
+        }
+        
+        /* Left Sidebar */
+        .left-sidebar {
+            width: 200px;
+            background-color: #f0f2f5;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            margin-right: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .profile-box {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+        
+        .profile-pic {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #3b5998;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+        
+        .username {
+            font-weight: bold;
+            color: #3b5998;
+        }
+        
+        .sidebar-menu {
+            list-style: none;
+        }
+        
+        .sidebar-menu li {
+            padding: 8px 5px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .sidebar-menu a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .sidebar-menu a:hover {
+            background-color: #e9ebee;
+        }
+        
+        .sidebar-menu i {
+            width: 20px;
+            text-align: center;
+            margin-right: 5px;
+            color: #3b5998;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+        }
+        
+        .status-box {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .status-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            background: linear-gradient(to bottom, #5b7bd5, #4864b1);
+            color: white;
+            border: none;
+            border-radius: 2px;
+            padding: 6px 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: linear-gradient(to bottom, #4864b1, #3b5998);
+        }
+        
+        /* URL Shortener Section */
+        .url-shortener {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            color: #3b5998;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .url-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .shortened-url {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f0f2f5;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            display: none;
+        }
+        
+        /* Feed */
+        .feed {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 15px;
+            margin-bottom: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .feed-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .feed-pic {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #3b5998;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .feed-name {
+            font-weight: bold;
+            color: #3b5998;
+        }
+        
+        .feed-time {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .feed-content {
+            margin: 10px 0;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .feed-actions {
+            display: flex;
+            justify-content: space-around;
+            padding: 5px 0;
+        }
+        
+        .feed-action {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .feed-action i {
+            margin-right: 5px;
+        }
+        
+        /* Right Sidebar */
+        .right-sidebar {
+            width: 250px;
+            background-color: #f0f2f5;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            margin-left: 15px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .ad-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .ad-title {
+            font-weight: bold;
+            color: #3b5998;
+            margin-bottom: 5px;
+        }
+        
+        .ad-content {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .friends-list {
+            list-style: none;
+        }
+        
+        .friends-list li {
+            padding: 8px 5px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            align-items: center;
+        }
+        
+        .friend-pic {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3b5998;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .friend-name {
+            color: #3b5998;
+            font-size: 14px;
+        }
+        
+        /* Footer */
+        .footer {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 12px;
+            border-top: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="#" class="logo">
+            <i class="fa fa-book"></i> Bodybook
+        </a>
+        
+        <input type="text" class="search-bar" placeholder="Search for people, places and things">
+        
+        <ul class="nav-links">
+            <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#"><i class="fa fa-users"></i> Friends</a></li>
+            <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
+        </ul>
+    </div>
+    
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="profile-box">
+                <div class="profile-pic">JD</div>
+                <div class="username">John Doe</div>
+                <div>View My Profile</div>
+            </div>
+            
+            <ul class="sidebar-menu">
+                <li><a href="#"><i class="fa fa-newspaper-o"></i> News Feed</a></li>
+                <li><a href="#"><i class="fa fa-comments"></i> Messages</a></li>
+                <li><a href="#"><i class="fa fa-calendar"></i> Events</a></li>
+                <li><a href="#"><i class="fa fa-users"></i> Groups</a></li>
+                <li><a href="#"><i class="fa fa-camera"></i> Photos</a></li>
+                <li><a href="#"><i class="fa fa-film"></i> Videos</a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> Pages</a></li>
+                <li><a href="#"><i class="fa fa-shopping-cart"></i> Marketplace</a></li>
+            </ul>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Status Update Box -->
+            <div class="status-box">
+                <input type="text" class="status-input" placeholder="What's on your mind?">
+                <button class="btn">Share</button>
+            </div>
+            
+            <!-- URL Shortener Section -->
+            <div class="url-shortener">
+                <h2 class="section-title">Bodybook URL Shortener</h2>
+                <p>Shorten your long URLs like ovk.to with Bodybook!</p>
+                
+                <input type="text" class="url-input" id="longUrl" placeholder="Enter your long URL here...">
+                <button class="btn" id="shortenBtn">Shorten URL</button>
+                
+                <div class="shortened-url" id="shortenedUrl">
+                    Your shortened URL: <a href="#" id="resultUrl"></a>
+                </div>
+            </div>
+            
+            <!-- News Feed -->
+            <div class="feed">
+                <div class="feed-header">
+                    <div class="feed-pic">JD</div>
+                    <div>
+                        <div class="feed-name">John Doe</div>
+                        <div class="feed-time">Posted 3 hours ago</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>Just tried the new Bodybook URL shortener - it's amazing! So much better than those other services. Highly recommend trying it out!</p>
+                </div>
+                <div class="feed-actions">
+                    <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a href="#" class="feed-action"><i class="fa fa-comment"></i> Comment</a>
+                    <a href="#" class="feed-action"><i class="fa fa-share"></i> Share</a>
+                </div>
+            </div>
+            
+            <div class="feed">
+                <div class="feed-header">
+                    <div class="feed-pic">MJ</div>
+                    <div>
+                        <div class="feed-name">Mary Johnson</div>
+                        <div class="feed-time">Posted yesterday</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>Remember when Bodybook first launched? It feels like yesterday! This new URL shortener feature brings back that nostalgic feeling.</p>
+                    <p>Check out my profile: <a href="#">bbk.to/mjprofile</a></p>
+                </div>
+                <div class="feed-actions">
+                    <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a href="#" class="feed-action"><i class="fa fa-comment"></i> Comment</a>
+                    <a href="#" class="feed-action"><i class="fa fa-share"></i> Share</a>
+                </div>
+            </div>
+            
+            <div class="feed">
+                <div class="feed-header">
+                    <div class="feed-pic">RS</div>
+                    <div>
+                        <div class="feed-name">Robert Smith</div>
+                        <div class="feed-time">Posted 2 days ago</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>Just shared my vacation photos using Bodybook's URL shortener. So convenient! </p>
+                    <p>See photos: <a href="#">bbk.to/hawaii2023</a></p>
+                </div>
+                <div class="feed-actions">
+                    <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a href="#" class="feed-action"><i class="fa fa-comment"></i> Comment</a>
+                    <a href="#" class="feed-action"><i class="fa fa-share"></i> Share</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="ad-box">
+                <div class="ad-title">Sponsored</div>
+                <div class="ad-content">Get the original Facebook experience with Bodybook!</div>
+            </div>
+            
+            <div class="ad-box">
+                <div class="ad-title">Bodybook Shortener</div>
+                <div class="ad-content">Shorten your URLs with bbk.to today!</div>
+            </div>
+            
+            <h3>Online Friends</h3>
+            <ul class="friends-list">
+                <li>
+                    <div class="friend-pic">AJ</div>
+                    <div class="friend-name">Alex Johnson</div>
+                </li>
+                <li>
+                    <div class="friend-pic">SM</div>
+                    <div class="friend-name">Sarah Miller</div>
+                </li>
+                <li>
+                    <div class="friend-pic">TP</div>
+                    <div class="friend-name">Tom Parker</div>
+                </li>
+                <li>
+                    <div class="friend-pic">LW</div>
+                    <div class="friend-name">Lisa Williams</div>
+                </li>
+                <li>
+                    <div class="friend-pic">MG</div>
+                    <div class="friend-name">Mike Green</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        Bodybook &copy; 2023 - The old Facebook experience with modern URL shortening
+    </div>
+    
+    <script>
+        // URL Shortening Functionality
+        document.getElementById('shortenBtn').addEventListener('click', function() {
+            const longUrl = document.getElementById('longUrl').value;
+            
+            if (!longUrl) {
+                alert('Please enter a URL to shorten');
+                return;
+            }
+            
+            // Generate a random short code (like bbk.to/AbCdEf)
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let shortCode = '';
+            for (let i = 0; i < 6; i++) {
+                shortCode += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            
+            const shortUrl = 'bbk.to/' + shortCode;
+            document.getElementById('resultUrl').textContent = shortUrl;
+            document.getElementById('resultUrl').href = shortUrl;
+            
+            // Show the result container
+            document.getElementById('shortenedUrl').style.display = 'block';
+            
+            // Add to feed (simulated)
+            const newFeed = document.createElement('div');
+            newFeed.className = 'feed';
+            newFeed.innerHTML = `
+                <div class="feed-header">
+                    <div class="feed-pic">JD</div>
+                    <div>
+                        <div class="feed-name">John Doe</div>
+                        <div class="feed-time">Just now</div>
+                    </div>
+                </div>
+                <div class="feed-content">
+                    <p>I just shortened a URL with Bodybook!</p>
+                    <p>Short URL: <a href="${shortUrl}">${shortUrl}</a></p>
+                </div>
+                <div class="feed-actions">
+                    <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> Like</a>
+                    <a href="#" class="feed-action"><i class="fa fa-comment"></i> Comment</a>
+                    <a href="#" class="feed-action"><i class="fa fa-share"></i> Share</a>
+                </div>
+            `;
+            
+            // Insert after the URL shortener section
+            const urlShortener = document.querySelector('.url-shortener');
+            urlShortener.parentNode.insertBefore(newFeed, urlShortener.nextSibling);
+            
+            // Reset input
+            document.getElementById('longUrl').value = '';
+        });
+        
+        // Simulate feed likes
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('feed-action') && e.target.querySelector('.fa-thumbs-up')) {
+                e.preventDefault();
+                e.target.innerHTML = '<i class="fa fa-thumbs-up"></i> Liked';
+                e.target.style.color = '#3b5998';
+                e.target.style.fontWeight = 'bold';
+            }
+        });
+    </script>
+</body>
+</html>

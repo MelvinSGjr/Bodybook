@@ -1,0 +1,19 @@
+{
+  "name": "bodybook",
+  "version": "1.0.0",
+  "description": "Bodybook — современная социальная сеть с мультиязычностью и адаптивным интерфейсом.",
+  "main": "server/app.js",
+  "scripts": {
+    "start": "node server/app.js",
+    "dev": "nodemon server/app.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+} 

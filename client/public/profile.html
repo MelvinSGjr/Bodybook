@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bodybook - Profile</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="assets/default-avatar.png">
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <a href="index.html" class="logo"><i class="fa fa-book"></i> Bodybook</a>
+        <input type="text" class="search-bar" placeholder="Search...">
+        <select id="language-switcher">
+            <option value="en">English</option>
+            <option value="zh">简体中文</option>
+            <option value="zh-Hant">繁體中文</option>
+            <option value="yue">粵語</option>
+            <option value="zh-TW">台灣正體</option>
+            <option value="ru">Русский</option>
+            <option value="es">Español</option>
+            <option value="it">Italiano</option>
+            <option value="de-CH">Deutsch (Schweiz)</option>
+            <option value="pt-BR">Português (Brasil)</option>
+        </select>
+        <ul class="nav-links">
+            <li><a href="profile.html"><i class="fa fa-user"></i> <span data-i18n="profile">Profile</span></a></li>
+            <li><a href="index.html"><i class="fa fa-home"></i> <span data-i18n="home">Home</span></a></li>
+            <li><a href="#"><i class="fa fa-users"></i> <span data-i18n="friends">Friends</span></a></li>
+            <li><a href="#"><i class="fa fa-cog"></i> <span data-i18n="settings">Settings</span></a></li>
+        </ul>
+    </div>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="left-sidebar">
+            <div class="profile-box">
+                <div class="profile-pic">JD</div>
+                <div class="username">John Doe</div>
+                <div data-i18n="view_profile">View My Profile</div>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><i class="fa fa-newspaper-o"></i> <span data-i18n="news_feed">News Feed</span></a></li>
+                <li><a href="#"><i class="fa fa-comments"></i> <span data-i18n="messages">Messages</span></a></li>
+                <li><a href="#"><i class="fa fa-calendar"></i> <span data-i18n="events">Events</span></a></li>
+                <li><a href="#"><i class="fa fa-users"></i> <span data-i18n="groups">Groups</span></a></li>
+                <li><a href="#"><i class="fa fa-camera"></i> <span data-i18n="photos">Photos</span></a></li>
+                <li><a href="#"><i class="fa fa-film"></i> <span data-i18n="videos">Videos</span></a></li>
+                <li><a href="#"><i class="fa fa-globe"></i> <span data-i18n="pages">Pages</span></a></li>
+            </ul>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="profile-header" style="background:white; border:1px solid #ddd; border-radius:3px; padding:20px; margin-bottom:20px; box-shadow:0 1px 2px rgba(0,0,0,0.1); display:flex; align-items:center;">
+                <img src="assets/default-avatar.png" alt="Avatar" style="width:100px; height:100px; border-radius:50%; margin-right:20px;">
+                <div>
+                    <h2 style="color:#3b5998;">John Doe</h2>
+                    <p style="color:#666;">@johndoe</p>
+                    <p style="margin-top:10px;">Web developer, music lover, Bodybook early adopter.</p>
+                </div>
+            </div>
+            <div class="profile-friends" style="background:white; border:1px solid #ddd; border-radius:3px; padding:15px; margin-bottom:20px;">
+                <h3 data-i18n="friends">Friends</h3>
+                <ul class="friends-list">
+                    <li><div class="friend-pic">AJ</div><div class="friend-name">Alex Johnson</div></li>
+                    <li><div class="friend-pic">SM</div><div class="friend-name">Sarah Miller</div></li>
+                    <li><div class="friend-pic">TP</div><div class="friend-name">Tom Parker</div></li>
+                </ul>
+            </div>
+            <div class="profile-posts">
+                <div class="feed">
+                    <div class="feed-header">
+                        <div class="feed-pic">JD</div>
+                        <div>
+                            <div class="feed-name">John Doe</div>
+                            <div class="feed-time">Posted 1 day ago</div>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <p>Excited to join Bodybook! Looking forward to connecting with everyone.</p>
+                    </div>
+                    <div class="feed-actions">
+                        <a href="#" class="feed-action"><i class="fa fa-thumbs-up"></i> Like</a>
+                        <a href="#" class="feed-action"><i class="fa fa-comment"></i> Comment</a>
+                        <a href="#" class="feed-action"><i class="fa fa-share"></i> Share</a>
+                    </div>
+                </div>
+                <!-- ... другие посты ... -->
+            </div>
+        </div>
+        <!-- Right Sidebar -->
+        <div class="right-sidebar">
+            <div class="ad-box">
+                <div class="ad-title" data-i18n="sponsored">Sponsored</div>
+                <div class="ad-content" data-i18n="ad1">Get the original Facebook experience with Bodybook!</div>
+            </div>
+            <div class="ad-box">
+                <div class="ad-title" data-i18n="shortener">Bodybook Shortener</div>
+                <div class="ad-content" data-i18n="ad2">Shorten your URLs with bbk.to today!</div>
+            </div>
+            <h3 data-i18n="online_friends">Online Friends</h3>
+            <ul class="friends-list">
+                <li><div class="friend-pic">LW</div><div class="friend-name">Lisa Williams</div></li>
+                <li><div class="friend-pic">MG</div><div class="friend-name">Mike Green</div></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div class="footer">
+        Bodybook &copy; 2023 - <span data-i18n="footer">The old Facebook experience with modern URL shortening</span>
+    </div>
+    <script src="scripts/language.js"></script>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
